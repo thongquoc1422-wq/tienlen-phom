@@ -110,14 +110,14 @@ function TienLenScreen({ goHome }) {
       {gameStarted && (
         <>
           <button
-            className="start-fixed-btn"
+            className="cal-score"
             style={{ bottom: 20 }}
             onClick={() => setShowRoundModal(true)}
           >
             Nhập kết quả ván đấu
           </button>
-
-          <div className="table-layout">
+          <div className="container_table-layout">
+            <div className="table-layout">
             {selectedPlayers.map((id, index) => {
               const player = playerList.find((p) => p.id === id);
               const pos = positions[id];
@@ -139,6 +139,8 @@ function TienLenScreen({ goHome }) {
               );
             })}
           </div>
+          </div>
+          
         </>
       )}
 

@@ -7,8 +7,8 @@
   background-size: cover;
   background-position: center;
   position: relative;
-
-  padding: 16px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -156,36 +156,38 @@
 
 .player-box-detail {
   height: auto;
-  width: auto;
+  width: 100%;          /* chiếm full ngang ô grid */
+  max-width: 280px;     /* tùy chỉnh nếu cần */
   min-width: 250px;
+
   background: rgba(0, 0, 0, 0.55);
   border: 3px solid rgba(255, 255, 255, 0.35);
   border-radius: 18px;
-
-  padding: 18px 18px;
+  padding: 10px 10px;
   color: white;
 
-  margin-top: 10px;
   display: flex;
-  justify-content: flex-start; /* căn từ trái qua phải */
-  align-items: center; /* canh giữa theo chiều dọc */
-  flex-direction: row; /* hàng ngang */
+  justify-content: flex-end; /* căn nội dung bên trong về bên phải */
+  align-items: center;       /* căn giữa dọc */
+  flex-direction: row;
 
   font-size: 18px;
   font-weight: 600;
-  text-align: left; /* canh trái */
+  text-align: left;
 
   backdrop-filter: blur(4px);
   transition: 0.25s ease;
-  gap: 16px; /* khoảng cách giữa các phần tử con */
+  gap: 16px;
+  margin: 0 auto;           /* căn giữa chính phần tử này trong ô grid */
 }
+
 
 /* ===========================================
    NÚT BẮT ĐẦU VÁN ĐẤU
 =========================================== */
 .start-fixed-btn {
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
@@ -199,8 +201,27 @@
   backdrop-filter: blur(5px);
   cursor: pointer;
   transition: 0.2s;
+  z-index: 9999;
 }
 
+.cal-score {
+  position: fixed;
+  transform: translateX(-50%) translateY(30%);
+  left: 50%;
+  width: auto;
+  height: auto;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 9999;
+}
 .start-fixed-btn:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateX(-50%) scale(1.05);
@@ -209,16 +230,31 @@
 /* ===========================
    BỐ CỤC PLAYER CARD (KHI GAME ĐÃ BẮT ĐẦU)
 =========================== */
+.container_table-layout {
+  width: 100%;
+  height: 80%; /* nếu muốn căn giữa theo chiều dọc */
+  display: flex;            /* bật flex */
+  justify-content: center;  /* căn giữa theo chiều ngang */
+  align-items: center;      /* căn giữa theo chiều dọc (nếu cần) */
+}
+
 .table-layout {
   position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  display: grid; /* đổi từ flex sang grid */
-  grid-template-columns: repeat(2, 1fr); /* 2 cột đều nhau */
-  gap: 20px; /* khoảng cách giữa các ô */
-  box-sizing: border-box;
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;
   overflow: visible;
+  justify-items: center; /* căn giữa theo chiều ngang trong grid cell */
+  align-items: center;   /* căn giữa theo chiều dọc trong grid cell */
+}
+
+.grid-card {
+  width: auto;
+  display: flex;           /* để PlayerCardDetail dễ căn chỉnh bên trong */
+  justify-content: center; /* căn giữa nội dung ngang */
+  align-items: center;     /* căn giữa nội dung dọc */
+  /* width và height bạn đang truyền inline style rồi */
 }
 
 .player-card {
