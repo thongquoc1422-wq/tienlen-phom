@@ -4,43 +4,66 @@ export default function PlayerCardDetail({ player, selected, onSelect }) {
       className={`player-box-detail ${selected ? "selected" : ""}`}
       onClick={onSelect}
     >
+      {/* Avatar */}
       <img
         src={player.avatar}
         alt={player.name}
         style={{
-          width: "30px",
-          height: "30px",
+          width: "50px",
+          height: "50px",
           borderRadius: "50%",
           objectFit: "cover",
-          marginBottom: "8px",
+          marginRight: "16px",
         }}
       />
 
-      <div style={{ fontSize: "14px", fontWeight: "bold", color: "Gray" }}>
-        {player.name}
-      </div>
-
-      <div style={{ fontSize: "12px", fontWeight: "600", marginTop: "8px" }}>
-      <span style={{ fontWeight: "bold" }}>Thứ hạng trước đó: </span>
-        {typeof player.lastRank === "number" && !isNaN(player.lastRank)
-          ? player.lastRank
-          : "-"}
-      </div>
-
-      {/* 🔥 Chỉ đổi màu con số */}
-      <div style={{ fontSize: "12px", fontWeight: "600", marginTop: "4px" }}>
-        <span style={{ fontWeight: "bold" }}>Điểm hiện tại: </span>
-        <span
+      {/* Info */}
+      <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+        <div
           style={{
-            color: "#56c725",
-            fontWeight: 500,
-            fontSize: "22px",
+            fontSize: "16px",
+            fontWeight: "bold",
+            color: "Gray",
+            marginBottom: "6px",
           }}
         >
-          {typeof player.currentScore === "number" && !isNaN(player.currentScore)
-            ? player.currentScore
-            : 0}
-        </span>
+          {player.name}
+        </div>
+
+        {/* Hàng chứa thứ hạng và điểm nằm ngang */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            fontSize: "14px",
+            fontWeight: "600",
+            color: "white",
+          }}
+        >
+          <div>
+            <span style={{ fontWeight: "bold" }}>Thứ hạng trước đó: </span>
+            {typeof player.lastRank === "number" && !isNaN(player.lastRank)
+              ? player.lastRank
+              : "-"}
+          </div>
+
+          <div>
+            <span style={{ fontWeight: "bold" }}>Điểm hiện tại: </span>
+            <span
+              style={{
+                color: "#56c725",
+                fontWeight: 500,
+                fontSize: "18px",
+              }}
+            >
+              {typeof player.currentScore === "number" &&
+              !isNaN(player.currentScore)
+                ? player.currentScore
+                : 0}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

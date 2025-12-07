@@ -64,6 +64,7 @@ function TienLenScreen({ goHome }) {
       player.lastRank,
       player.currentScore
     );
+
     // ⭐ ÁP DỤNG ĐIỂM
     realPlayer.applyRoundScore({
     mode,
