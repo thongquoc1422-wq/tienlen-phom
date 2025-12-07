@@ -110,7 +110,7 @@ function TienLenScreen({ goHome }) {
       {gameStarted && (
         <>
           <button
-            className="cal-score"
+            className="start-fixed-btn"
             style={{ bottom: 20 }}
             onClick={() => setShowRoundModal(true)}
           >

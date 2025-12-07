@@ -204,27 +204,324 @@
   z-index: 9999;
 }
 
-.cal-score {
-  position: fixed;
-  transform: translateX(-50%) translateY(30%);
-  left: 50%;
-  width: auto;
-  height: auto;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-  padding: 12px 25px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(5px);
-  cursor: pointer;
-  transition: 0.2s;
-  z-index: 9999;
-}
 .start-fixed-btn:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateX(-50%) scale(1.05);
+}
+
+/* =============================
+   OVERLAY & MODAL CHÍNH
+============================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.modal-box {
+  background: #222;
+  color: #eee;
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+  border-radius: 16px;
+  padding: 24px 32px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.8);
+  overflow-y: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  animation: popIn 0.3s ease forwards;
+}
+
+/* hiệu ứng mở modal */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =============================
+   TIÊU ĐỀ
+============================= */
+.modal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffcc00;
+}
+
+/* =============================
+   CHỌN MODE RADIO
+============================= */
+.mode-select {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.radio-option {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ddd;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radio-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* =============================
+   DANH SÁCH NGƯỜI CHƠI 2 CỘT
+============================= */
+.player-result-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cột đều nhau */
+  grid-template-rows: repeat(2, auto);  /* 2 hàng */
+  gap: 1.25rem 2rem;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 8px; /* tránh che scrollbar */
+  margin-bottom: 2rem;
+}
+
+
+/* =============================
+   MỖI PLAYER ROW
+============================= */
+.player-result-row {
+  background: #2c2c2c;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: inset 0 0 8px rgb(255, 0, 0);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Tên người chơi */
+.player-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffd500;
+  user-select: none;
+}
+
+/* =============================
+   HỘP CHỌN THỨ HẠNG
+============================= */
+.rank-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #ccc;
+  flex-wrap: wrap;
+  user-select: none;
+  font-size: 1rem;
+}
+
+.rank-box::before {
+  margin-right: 8px;
+  font-weight: 700;
+  color: #bbb;
+}
+
+/* Nút chọn rank */
+.rank-item {
+  width: 34px;
+  height: 34px;
+  border: 2.5px solid #666;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+  color: #bbb;
+  transition: all 0.25s ease;
+  user-select: none;
+  background-color: transparent;
+}
+
+.rank-item:hover:not(.rank-disabled):not(.rank-selected) {
+  border-color: #ffd500;
+  color: #ffd500;
+  background-color: rgba(255, 213, 0, 0.15);
+}
+
+.rank-selected {
+  background-color: #26b91e;
+  border-color: #059b0f;
+  color: white;
+  cursor: pointer;
+}
+
+.rank-disabled {
+  background-color: #444;
+  border-color: #333;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* =============================
+   HỘP HEO ĐỎ / HEO ĐEN
+============================= */
+.heo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #eee;
+  font-size: 1rem;
+}
+
+/* Label bên trái */
+.heo-box label {
+  min-width: 75px;
+  user-select: none;
+}
+
+/* =============================
+   NUMBER STEPPER
+============================= */
+.number-stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.number-stepper button {
+  background-color: #444;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  padding: 0;
+  user-select: none;
+}
+
+.number-stepper button:hover {
+  background-color: #666;
+}
+
+.number-stepper span {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+/* =============================
+   HÀNG NÚT HỦY / XÁC NHẬN
+============================= */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.confirm-btn, .cancel-btn {
+  flex: 1;
+  padding: 14px 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.confirm-btn {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.45);
+}
+
+.confirm-btn:hover {
+  background: linear-gradient(135deg, #5ed863, #34a049);
+  transform: translateY(-3px);
+}
+
+.cancel-btn {
+  background: linear-gradient(135deg, #c62828, #8e0000);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.45);
+}
+
+.cancel-btn:hover {
+  background: linear-gradient(135deg, #ff4d4d, #b30000);
+  transform: translateY(-3px);
+}
+
+/* =============================
+   SCROLLBAR DANH SÁCH PLAYER (WEBKIT)
+============================= */
+.player-result-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.player-result-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 650px) {
+  .player-result-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-box {
+    padding: 20px 24px;
+    max-width: 100%;
+  }
+
+  .confirm-btn, .cancel-btn {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  .number-stepper button {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+  }
+
+  .number-stepper span {
+    min-width: 32px;
+    font-size: 1.1rem;
+  }
 }
 
 /* ===========================
@@ -239,6 +536,7 @@
 }
 
 .table-layout {
+  transform: translateX(10%);
   position: relative;
   width: 70%;
   display: grid;

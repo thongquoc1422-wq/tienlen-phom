@@ -122,10 +122,8 @@ const submit = () => {
           {players.map((p) => (
             <div key={p.id} className="player-result-row">
               <div className="player-name">{p.name}</div>
-
               {/* Rank selection */}
               <div className="rank-box">
-                Thứ hạng:
                 {[1, 2, 3, 4].map((r) => {
                   const isMine = results[p.id].rank === r;
                   const isTaken = takenRanks.includes(r) && !isMine;
@@ -147,7 +145,7 @@ const submit = () => {
 
               {/* Heo đỏ */}
               <div className="heo-box">
-                <label>Heo đỏ</label>
+                <label style={{color : "red", fontWeight: "bold"}}>Heo đỏ</label>
                 <NumberStepper
                   value={results[p.id].heoDo}
                   min={-10}
@@ -157,7 +155,7 @@ const submit = () => {
               </div>
               {/* Heo đen */}
               <div className="heo-box">
-                <label>Heo đen</label>
+                <label style={{color : "black", fontWeight: "bold"}}>Heo đen</label>
                 <NumberStepper
                   value={results[p.id].heoDen}
                   min={-10}
