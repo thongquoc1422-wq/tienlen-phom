@@ -272,7 +272,7 @@
 .modal-box {
   background: #1e1e1e;
   padding: 22px;
-  width: 90%;
+  width: 70%;
   max-height: 80vh;            /* 🔥 giới hạn chiều cao */
   overflow-y: auto;            /* 🔥 bật scroll dọc */
   border-radius: 18px;
