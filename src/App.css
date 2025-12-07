@@ -150,6 +150,7 @@
   padding: 18px 18px;
   color: white;
 
+  margin-top: 10px;
   display: flex;
   justify-content: flex-start; /* căn từ trái qua phải */
   align-items: center; /* canh giữa theo chiều dọc */
