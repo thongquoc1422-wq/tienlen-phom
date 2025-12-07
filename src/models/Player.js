@@ -16,16 +16,11 @@ export default class Player {
     const scoreRank = baseScores[mode][rank];
 
     // Mặc định nếu không có dữ liệu heo
-    heoDo = heoDo || { eaten: 0, lost: 0 };
-    heoDen = heoDen || { eaten: 0, lost: 0 };
+    heoDo = heoDo || 0;
+    heoDen = heoDen || 0;
 
-    // Quy tắc tính điểm heo
-    const score =
-      scoreRank +
-      heoDo.eaten * 2 -
-      heoDo.lost * 2 +
-      heoDen.eaten * 1 -
-      heoDen.lost * 1;
+    // Quy tắc tính điểm heo, heo đỏ 2 điểm, ăn thì trừ 2, thua thì trừ 1
+    const score = scoreRank + heoDo * 2 + heoDen * 1;
 
     this.currentScore += score;
     this.lastRank = rank;

@@ -64,22 +64,13 @@ function TienLenScreen({ goHome }) {
       player.lastRank,
       player.currentScore
     );
-
     // ⭐ ÁP DỤNG ĐIỂM
     realPlayer.applyRoundScore({
     mode,
     rank: r.rank,
-    heoDo: {
-        eaten: r.heoDoEaten || 0,
-        lost: r.heoDoLost || 0,
-    },
-    heoDen: {
-        eaten: r.heoDenEaten || 0,
-        lost: r.heoDenLost || 0,
-    },
+    heoDo: r.heoDo || 0,
+    heoDen: r.heoDen || 0,
     });
-
-
     return realPlayer; // ⭐ TRẢ LẠI ĐÚNG INSTANCE PLAYER
   });
 
