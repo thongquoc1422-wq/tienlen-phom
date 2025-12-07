@@ -10,8 +10,8 @@ export default function PlayerCard({ player, selected, onSelect }) {
         src={player.avatar}
         alt={player.name}
         style={{
-          width: "70px",
-          height: "70px",
+          width: "50px",
+          height: "50px",
           borderRadius: "50%",
           objectFit: "cover",
           marginBottom: "8px",

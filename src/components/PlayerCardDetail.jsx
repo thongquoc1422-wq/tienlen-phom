@@ -9,8 +9,8 @@ export default function PlayerCardDetail({ player, selected, onSelect }) {
         src={player.avatar}
         alt={player.name}
         style={{
-          width: "50px",
-          height: "50px",
+          width: "40px",
+          height: "40px",
           borderRadius: "50%",
           objectFit: "cover",
           marginRight: "16px",
@@ -21,7 +21,7 @@ export default function PlayerCardDetail({ player, selected, onSelect }) {
       <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
         <div
           style={{
-            fontSize: "16px",
+            fontSize: "14px",
             fontWeight: "bold",
             color: "Gray",
             marginBottom: "6px",
@@ -36,7 +36,7 @@ export default function PlayerCardDetail({ player, selected, onSelect }) {
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: "600",
             color: "white",
           }}
@@ -54,7 +54,7 @@ export default function PlayerCardDetail({ player, selected, onSelect }) {
               style={{
                 color: "#56c725",
                 fontWeight: 500,
-                fontSize: "18px",
+                fontSize: "16px",
               }}
             >
               {typeof player.currentScore === "number" &&

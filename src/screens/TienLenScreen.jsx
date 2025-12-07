@@ -79,14 +79,6 @@ function TienLenScreen({ goHome }) {
   setShowRoundModal(false); // 🔥 Đóng modal
 };
 
-
-  const corners = [
-    { top: 10, left: 130 },
-    { top: 10, right: 130 },
-    { bottom: 10, left: 130 },
-    { bottom: 10, right: 130 },
-  ];
-
   return (
     <div className="app-phone" style={{ backgroundImage: `url(${tableImg})` }}>
       <button className="back-btn" onClick={goHome}>◀ Trở về</button>
@@ -131,37 +123,19 @@ function TienLenScreen({ goHome }) {
               const pos = positions[id];
               if (!pos) return null;
 
-              const corner = corners[index];
-              let targetX, targetY;
-
-              targetX = corner.left !== undefined
-                ? corner.left
-                : window.innerWidth - corner.right - pos.width;
-
-              targetY = corner.top !== undefined
-                ? corner.top
-                : window.innerHeight - corner.bottom - pos.height;
-
-              const deltaX = targetX - pos.x;
-              const deltaY = targetY - pos.y;
-
               return (
                 <div
                   key={id}
-                  className="player-card-animate"
+                  className="grid-card"
                   style={{
-                    position: "fixed",
-                    top: pos.y,
-                    left: pos.x,
                     width: pos.width,
                     height: pos.height,
-                    transform: `translate(${deltaX}px, ${deltaY}px)`,
-                    transition: "transform 0.6s ease-in-out",
                     zIndex: 1000 + index,
                   }}
                 >
-                  <PlayerCardDetail player={player} fullInfo />
-                </div>
+                <PlayerCardDetail player={player} fullInfo />
+              </div>
+
               );
             })}
           </div>
