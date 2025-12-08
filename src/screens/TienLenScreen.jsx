@@ -20,7 +20,7 @@ function TienLenScreen({ goHome }) {
       return;
     }
     if (selectedPlayers.length >= 4) {
-      alert("Bạn chỉ được chọn tối đa 4 người!");
+      alert("Địt mẹ ông đánh tiến lên 5 người à???");
       return;
     }
     setSelectedPlayers([...selectedPlayers, player.id]);
