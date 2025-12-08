@@ -77,14 +77,24 @@ const submit = () => {
 
   // Kiểm tra cân bằng heo đỏ và heo đen
   if (totalHeoDo !== 0) {
-    alert("Tổng số heo đỏ ăn và bị ăn không cân bằng! Vui lòng kiểm tra lại.");
+    alert("Ông tính heo kiểu đéo gì đấy???");
     return; // dừng submit
   }
 
   if (totalHeoDen !== 0) {
-    alert("Tổng số heo đen ăn và bị ăn không cân bằng! Vui lòng kiểm tra lại.");
+    alert("Ông tính heo kiểu đéo gì đấy???");
     return; // dừng submit
   }
+  
+  const allRanked = Object.values(results).every(r => r.rank !== null);
+
+  if (!allRanked) {
+    alert("Ông nhập có thiếu thằng nào không???");
+    return;
+  }
+
+
+
 
   // Nếu đúng thì gửi dữ liệu
   onSubmit({ mode, results });
