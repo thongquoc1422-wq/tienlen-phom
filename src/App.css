@@ -612,3 +612,28 @@
     padding: 16px;
   }
 }
+
+.congratulation-box {
+  text-align: center;
+  padding: 30px;
+}
+
+.congrats-content {
+  margin-top: 10px;
+}
+
+.trophy {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.winner-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.winner-info {
+  font-size: 16px;
+  opacity: 0.8;
+}
